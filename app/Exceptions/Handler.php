@@ -19,6 +19,8 @@ class Handler extends ExceptionHandler
         //
     ];
 
+    use ExceptionTrait;
+
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
@@ -65,6 +67,7 @@ class Handler extends ExceptionHandler
                     'errors' => 'Incorect route'
                 ],Response::HTTP_NOT_FOUND);
             }
+            return $this->apiException($request,$exception);
         }
         // dd($exception);
         return parent::render($request, $exception);

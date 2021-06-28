@@ -18,7 +18,8 @@ class ProductResource extends JsonResource
             'name' => $this->name,
             'description' => $this->detail,
             'price' => $this->price,
-            'stock' => $this->stock,
+            'stock' => $this->stock == 0 ? 'Out of Stock' : $this->stock,
+            'discount' =>$this->discount,
             'discount' =>$this->discount,
         ];
     }
